@@ -1,0 +1,618 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Ratih Anggie | Portofolio Interaktif - Pengalaman & Magang</title>
+  <!-- Google Fonts + Font Awesome + AOS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', 'Inter', sans-serif;
+      background: linear-gradient(145deg, #fff5fc 0%, #fff0fa 100%);
+      color: #5a3e45;
+      scroll-behavior: smooth;
+    }
+
+    /* Tema Kuning Pink Soft */
+    :root {
+      --pink-soft: #FFB7C5;
+      --pink-medium: #FF8DA1;
+      --pink-coral: #FF6B82;
+      --yellow-light: #FFF0B5;
+      --yellow-warm: #FFEAA7;
+      --yellow-gold: #F9D56E;
+      --bg-card: #ffffff;
+      --shadow: 0 20px 35px -12px rgba(255, 107, 130, 0.15);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(255, 250, 252, 0.96);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 3px solid var(--pink-soft);
+      padding: 14px 0;
+    }
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, var(--pink-coral), var(--yellow-gold));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #b36b7c;
+      transition: 0.2s;
+      padding: 6px 0;
+    }
+    .nav-links a:hover {
+      color: var(--pink-coral);
+      border-bottom: 2px solid var(--pink-coral);
+    }
+
+    /* Hero / Profile */
+    .hero {
+      padding: 55px 0 30px;
+    }
+    .profile-card {
+      background: var(--bg-card);
+      border-radius: 56px;
+      padding: 40px 28px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--yellow-light);
+    }
+    .profile-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--pink-soft);
+      margin-bottom: 20px;
+      background: #ffe2e8;
+    }
+    .profile-card h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #d95b72, #e9a847);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .bio {
+      max-width: 550px;
+      margin: 12px auto;
+      color: #85646e;
+      font-weight: 500;
+    }
+    .sosmed-icons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin: 18px 0 12px;
+    }
+    .sosmed-icons a {
+      background: #ffeef2;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: var(--pink-coral);
+      transition: 0.2s;
+    }
+    .sosmed-icons a:hover {
+      background: var(--pink-soft);
+      color: white;
+      transform: translateY(-5px);
+    }
+    .btn-wa {
+      background: linear-gradient(95deg, var(--pink-medium), #ff8e9f);
+      border: none;
+      padding: 12px 32px;
+      border-radius: 60px;
+      font-weight: 700;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-top: 12px;
+      box-shadow: 0 6px 14px rgba(255, 107, 130, 0.2);
+    }
+    .btn-wa:hover {
+      transform: translateY(-3px);
+      background: var(--pink-coral);
+    }
+
+    .section-title {
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin: 55px 0 25px 0;
+      position: relative;
+      display: inline-block;
+      color: #c95b70;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 70px;
+      height: 4px;
+      background: var(--yellow-gold);
+      border-radius: 4px;
+    }
+
+    .about-card {
+      background: #fffafc;
+      border-radius: 40px;
+      padding: 28px 30px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--yellow-light);
+    }
+
+    /* Experience Cards (clickable) */
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 28px;
+      margin: 35px 0 30px;
+    }
+    .exp-card {
+      background: white;
+      border-radius: 44px;
+      padding: 24px 20px;
+      transition: all 0.25s ease;
+      box-shadow: 0 14px 28px -8px rgba(0,0,0,0.05);
+      border: 1px solid #ffe4e8;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+    }
+    .exp-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 32px -12px rgba(255, 130, 150, 0.3);
+      border-color: var(--pink-soft);
+    }
+    .click-badge {
+      background: var(--yellow-light);
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      margin-top: 12px;
+      font-weight: 600;
+      color: #b45f6b;
+    }
+    .exp-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 30px;
+      object-fit: cover;
+      margin: 0 auto 18px;
+      background: #ffe3e9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+      color: var(--pink-coral);
+    }
+    .exp-card h3 {
+      font-size: 1.35rem;
+      color: #ba5b6e;
+    }
+    .exp-pos {
+      font-weight: 600;
+      color: var(--pink-coral);
+      margin: 5px 0;
+    }
+    .exp-year {
+      font-size: 0.8rem;
+      background: var(--yellow-light);
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 30px;
+      margin: 8px 0;
+    }
+
+    /* MODAL STYLE */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #fffef7;
+      border-radius: 48px;
+      max-width: 550px;
+      width: 90%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 28px 24px;
+      position: relative;
+      animation: fadeInUp 0.3s ease;
+      border: 2px solid var(--yellow-gold);
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .close-modal {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--pink-coral);
+      transition: 0.2s;
+    }
+    .close-modal:hover {
+      transform: scale(1.1);
+    }
+    .modal-img {
+      width: 100%;
+      max-height: 260px;
+      object-fit: cover;
+      border-radius: 32px;
+      margin: 16px 0;
+      background: #ffe5e5;
+    }
+    .modal-desc {
+      line-height: 1.5;
+      margin: 12px 0;
+      color: #5a3e45;
+    }
+    .modal-header {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #d45a6e;
+    }
+
+    /* Products Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 28px;
+      margin: 30px 0 40px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 42px;
+      padding: 22px 16px;
+      text-align: center;
+      transition: 0.2s;
+      border: 1px solid var(--yellow-light);
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--pink-soft);
+      box-shadow: var(--shadow);
+    }
+    .product-icon {
+      font-size: 3rem;
+      background: var(--yellow-light);
+      width: 90px;
+      height: 90px;
+      line-height: 90px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      color: var(--pink-coral);
+    }
+    .product-title {
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+    .product-price {
+      font-weight: 700;
+      color: #e9866b;
+      margin: 8px 0;
+    }
+    .order-food-btn {
+      background: #fff0dd;
+      border: none;
+      padding: 10px 0;
+      width: 85%;
+      border-radius: 60px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-top: 10px;
+    }
+    .order-food-btn:hover {
+      background: var(--pink-soft);
+      color: white;
+    }
+    footer {
+      background: #ffeef2;
+      border-radius: 48px 48px 0 0;
+      padding: 36px 28px 28px;
+      margin-top: 60px;
+      border-top: 3px solid var(--yellow-warm);
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .footer-sosmed a {
+      color: var(--pink-coral);
+      font-size: 1.6rem;
+      margin-right: 18px;
+      transition: 0.2s;
+    }
+    @media (max-width: 750px) {
+      .container {
+        padding: 0 18px;
+      }
+      .nav-wrapper {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-wrapper">
+    <div class="logo"><i class="fas fa-star" style="color:#FF8DA1;"></i> ratihanggie 🩷</div>
+    <ul class="nav-links">
+      <li><a href="#home">Beranda</a></li>
+      <li><a href="#about">Tentang</a></li>
+      <li><a href="#experience">Pengalaman</a></li>
+      <li><a href="#products">Menu</a></li>
+      <li><a href="#contact-footer">Kontak</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="profile-card" data-aos="zoom-in-up">
+      <img class="profile-photo" src="WhatsApp Image 2026-04-28 at 23.32.04.jpeg" alt="Foto Ratih">
+      <h1>Ratih Anggie Diasmadi ✨</h1>
+      <p class="bio">Mahasiswa Aktif Teknik Pengolahan Limbah | PPNS | NRP: 1025040142 | TTL: Tuban 11 April 2007. Klik kartu pengalaman untuk lihat dokumentasi!</p>
+      <div class="sosmed-icons">
+        <a href="https://www.instagram.com/ratihhanggie" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@raaadys" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+      <button class="btn-wa" id="waMainBtn"><i class="fab fa-whatsapp"></i> Hubungi Saya</button>
+    </div>
+  </div>
+</section>
+
+<div class="container" id="about">
+  <h2 class="section-title" data-aos="fade-right">🌸 Tentang Aku</h2>
+  <div class="about-card" data-aos="fade-up">
+    <p>Halo! Aku Ratih, mahasiswa aktif <strong>Teknik Pengolahan Limbah di PPNS</strong>. Selain suka belajar hal baru, aku juga punya hobi Hiking dan membuat camilan. Aktif berorganisasi sejak SMK, dan pengalaman magang di PT SUCOFINDO membekali wawasan laboratorium. Yuk klik kartu pengalaman dibawah untuk lihat dokumentasi kegiatanku!</p>
+  </div>
+</div>
+
+<!-- PENGALAMAN ORGANISASI + INTERNSHIP (CLICKABLE MODAL dengan dokumentasi) -->
+<div class="container" id="experience">
+  <h2 class="section-title" data-aos="fade-right">📸 Pengalaman & Magang </h2>
+  <div class="exp-grid">
+    <!-- Dewan Ambalan -->
+    <div class="exp-card" data-exp="ambalan" data-aos="zoom-in">
+      <div class="exp-img"><i class="fas fa-campground" style="font-size: 3rem;"></i></div>
+      <h3>Dewan Ambalan</h3>
+      <div class="exp-pos">Divisi LITBANG</div>
+      <span class="exp-year">2022 - 2025</span>
+      <div class="click-badge"><i class="fas fa-hand-pointer"></i> Klik untuk dokumentasi</div>
+    </div>
+    <!-- Himpunan Mahasiswa -->
+    <div class="exp-card" data-exp="himpunan" data-aos="zoom-in" data-aos-delay="100">
+      <div class="exp-img"><i class="fas fa-users" style="font-size: 3rem;"></i></div>
+      <h3>Himpunan Teknik Pengolahan Limbah</h3>
+      <div class="exp-pos">Sekretaris Umum 2</div>
+      <span class="exp-year">2026 - Sekarang</span>
+      <div class="click-badge"><i class="fas fa-hand-pointer"></i> Klik untuk dokumentasi</div>
+    </div>
+    <!-- Internship SMK PT SUCOFINDO -->
+    <div class="exp-card" data-exp="sucofindo" data-aos="zoom-in" data-aos-delay="200">
+      <div class="exp-img"><i class="fas fa-flask" style="font-size: 3rem;"></i></div>
+      <h3>PT. SUCOFINDO (Internship)</h3>
+      <div class="exp-pos">Laboratorium Asisten</div>
+      <span class="exp-year">2022 (SMK)</span>
+      <div class="click-badge"><i class="fas fa-hand-pointer"></i> Klik untuk dokumentasi</div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL UNTUK MENAMPILKAN DOKUMENTASI & PENJELASAN -->
+<div id="detailModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <div id="modalBody">
+      <!-- konten dinamis akan diisi javascript -->
+    </div>
+  </div>
+</div>
+
+<!-- TOKO MAKANAN -->
+<div class="container" id="products">
+  <h2 class="section-title" data-aos="fade-right">🍰 Jualan saat SMK</h2>
+  <div class="products-grid">
+    <div class="product-card" data-aos="flip-left"><div class="product-icon"><i class="fas fa-cake"></i></div><div class="product-title">Mile Crapes</div><div class="product-price">Rp 15.000</div><p style="font-size: 0.8rem;">Lapis legit, krim susu manis</p><button class="order-food-btn" data-name="Mile Crapes">🍴 Pesan</button></div>
+    <div class="product-card" data-aos="flip-left" data-aos-delay="200"><div class="product-icon"><i class="fas fa-ice-cream"></i></div><div class="product-title">Milky Jelly Ice</div><div class="product-price">Rp 12.000</div><p style="font-size: 0.8rem;">Segar jelly susu</p><button class="order-food-btn" data-name="Milky Jelly Ice">🥤 Pesan</button></div>
+    <div class="product-card" data-aos="flip-left" data-aos-delay="300"><div class="product-icon"><i class="fas fa-candy-cane"></i></div><div class="product-title">Milo Candy</div><div class="product-price">Rp 8.000</div><p style="font-size: 0.8rem;">Coklat Milo kriuk</p><button class="order-food-btn" data-name="Milo Candy">🍬 Pesan</button></div>
+  </div>
+</div>
+
+<div class="container" id="contact-footer">
+  <div style="background: #fff9fb; border-radius: 48px; padding: 28px 24px; margin: 20px 0; text-align: center;">
+    <h3 style="color:#d45a6e;"><i class="fas fa-heart"></i> Yuk, Terhubung!</h3>
+    <p>📱 IG: <a href="https://www.instagram.com/ratihhanggie" style="color:#FF8DA1;" target="_blank">@ratihhanggie</a> &nbsp;| 🎵 TikTok: <a href="https://www.tiktok.com/@raaadys" style="color:#FF8DA1;" target="_blank">@raaadys</a></p>
+    <p>📞 WA: 0895-2821-8050 &nbsp;| 📧 ratihanggie@student.ppns.ac.id</p>
+    <button class="btn-wa" id="waFooterBtn" style="margin-top: 18px;"><i class="fab fa-whatsapp"></i> Chat Langsung</button>
+  </div>
+</div>
+
+<footer>
+  <div class="container footer-content">
+    <div><p><i class="fas fa-crown"></i> Ratih Anggie Diasmadi | Teknik Pengolahan Limbah - PPNS</p></div>
+    <div class="footer-sosmed">
+      <a href="https://www.instagram.com/ratihhanggie" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@raaadys" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/6289528218050" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <div><p>© 2025 • Portofolio Interaktif</p></div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 700, once: true, offset: 30 });
+
+  // Data dokumentasi untuk setiap pengalaman (foto, penjelasan detail)
+  const expData = {
+    ambalan: {
+      title: "🏕️ Dewan Ambalan - LITBANG",
+      images: [
+        "foto dewan 1.jpeg",
+        "foto dewan 2.jpeg"
+      ],
+      fullDesc: "Sebagai Divisi LITBANG :penelitian dan pengemban, di Dewan Ambalan, saya bertanggung jawab memimpin latihan rutin, mengorganisir kegiatan kepramukaan, serta menjadi sie kegiatan pada acara Penerimaan Tamu Ambalan Dokumentasi ini menampilkan momen saat foto bersama anggota ambalan dan saat kegiatan berlangsung. Pengalaman ini membentuk leadership, kerja tim, serta kedisiplinan yang kuat."
+    },
+    himpunan: {
+      title: "📚 Himpunan Mahasiswa Teknik Pengolahan Limbah",
+      images: [
+        "foto hima 1.jpeg",
+        "foto hima 2.jpeg"
+      ],
+      fullDesc: "Sebagai Sekretaris Umum 2 di Himpunan Teknik Pengolahan Limbah, saya mengelola administrasi himpunan, asistensi proposal program kerja, dan menjalin komunikasi dengan mitra eksternal. Saya belajar mengatur arsip, public speaking, serta memperluas relasi."
+    },
+    sucofindo: {
+      title: "🔬 Magang di PT. SUCOFINDO (SMK)",
+      images: [
+        "foto magang 1.jpeg",
+        "foto magang 2.jpeg"
+      ],
+      fullDesc: "Selama magang di PT SUCOFINDO, saya ditempatkan di laboratorium Migas. Tugas: membantu analisis sampel bensin,solar,MFO, Olie dll, menyiapkan alat laboratorium, serta mencatat hasil uji. Dokumentasi menunjukkan kegiatan sampling dan pengujian di lab. Saya mendapatkan pengalaman teknis tentang prosedur quality control serta penerapan K3 di industri."
+    }
+  };
+
+  // modal elements
+  const modal = document.getElementById('detailModal');
+  const modalBody = document.getElementById('modalBody');
+  const closeModalBtn = document.querySelector('.close-modal');
+
+  // Fungsi buka modal dengan data pengalaman
+  function openExpModal(expKey) {
+    const data = expData[expKey];
+    if (!data) return;
+    // membuat konten modal dengan gambar & penjelasan detail
+    let imageHtml = '';
+    if (data.images && data.images.length) {
+      imageHtml = `<div style="display:flex; flex-direction:column; gap:12px; margin: 10px 0;">`;
+      data.images.forEach((imgUrl, idx) => {
+        imageHtml += `<img src="${imgUrl}" alt="dokumentasi ${idx+1}" class="modal-img" style="width:100%; border-radius:28px;">`;
+      });
+      imageHtml += `</div>`;
+    } else {
+      imageHtml = `<div style="background:#ffe9ef; border-radius:36px; padding:20px; text-align:center"><i class="fas fa-image" style="font-size:3rem; color:#FF8DA1;"></i><p>Dokumentasi terlampir</p></div>`;
+    }
+    const detailHtml = `
+      <h2 class="modal-header">${data.title}</h2>
+      ${imageHtml}
+      <div class="modal-desc">
+        <p><i class="fas fa-calendar-alt"></i> <strong>Deskripsi kegiatan:</strong></p>
+        <p>${data.fullDesc}</p>
+        <hr style="margin:16px 0; border-color:#ffe0e5;">
+        <p><i class="fas fa-lightbulb"></i> <strong>Soft skill yang didapat:</strong> Kepemimpinan, kerja sama tim, komunikasi, serta pemahaman teknis laboratorium.</p>
+      </div>
+    `;
+    modalBody.innerHTML = detailHtml;
+    modal.style.display = 'flex';
+  }
+
+  // Tutup modal
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+
+  // Pasang event listener ke setiap kartu pengalaman
+  document.querySelectorAll('.exp-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      const expType = card.getAttribute('data-exp');
+      if (expType && expData[expType]) {
+        openExpModal(expType);
+      }
+    });
+  });
+
+  // close modal via tombol X atau klik di luar
+  if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  // WA function
+  const waNumber = "6289528218050";
+  function openWA(productName = null) {
+    let msg = "Halo Ratih! Aku lihat portofolio & pengalamanmu yang keren nih!";
+    if (productName) msg = `Halo Kak Ratih! Aku mau pesan ${productName}. Apakah tersedia? 😋`;
+    window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+  document.getElementById('waMainBtn').addEventListener('click', () => openWA());
+  document.getElementById('waFooterBtn').addEventListener('click', () => openWA());
+  document.querySelectorAll('.order-food-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const name = btn.getAttribute('data-name');
+      openWA(name);
+    });
+  });
+</script>
+</body>
+</html>
+```
